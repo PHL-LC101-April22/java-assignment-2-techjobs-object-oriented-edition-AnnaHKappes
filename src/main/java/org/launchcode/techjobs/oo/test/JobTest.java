@@ -22,7 +22,7 @@ public class JobTest {
     }
 
     @Test
-    public void testJobConstructorSetsAllFields(){
+    public void testJobConstructorSetsAllFields() {
         Employer employer_test = new Employer("ACME");
         Location location_test = new Location("Desert");
         PositionType positionType_test = new PositionType("Quality control");
@@ -39,7 +39,14 @@ public class JobTest {
         assertTrue(location_test instanceof Location);
         assertTrue(positionType_test instanceof PositionType);
         assertTrue(coreCompetency_test instanceof CoreCompetency);
-
     }
+
+    @Test
+    public void testJobsForEquality(){
+        Job job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(job4.getId() == job5.getId());
+    }
+
 
 }
