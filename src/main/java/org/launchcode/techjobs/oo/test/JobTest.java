@@ -48,5 +48,11 @@ public class JobTest {
         assertFalse(job4.getId() == job5.getId());
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals('\n', job5.toString().charAt(0));
+        assertEquals('\n', job5.toString().charAt(job5.toString().length()-1));
+    }
 
 }
